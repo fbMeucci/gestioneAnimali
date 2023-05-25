@@ -1,13 +1,15 @@
+const id = document.querySelector("#idAnimale")
 const nome = document.querySelector("#nome")
 const tipo = document.querySelector("#tipo")
 const castrato = document.querySelector("#castrato")
 const eta = document.querySelector("#eta")
 
 const tbody = document.querySelector("#tbody")
-const divButtons = document.querySelector("#divButtons")
-
 const btnAdd = document.querySelector("#btnAdd");
+const btnMod = document.querySelector("#btnMod");
+
 const animali = []
+let counter = 1
 
 btnAdd.addEventListener('click', () => {
     if ( nome.value.trim().length < 3 ) {
@@ -19,14 +21,17 @@ btnAdd.addEventListener('click', () => {
         return false;
     }
     const animale = {   
-        id: animali.length + 1,
+        id: counter,
         nome : nome.value,
         tipo: tipo.value,
-        castrato: ( parseInt(castrato.value) ) ? 'SI' : 'NO',
+        castrato: castrato.value,
         eta: parseInt(eta.value)
     }
     animali.push(animale)
     render(animali)
+    counter += 1
+    nome.value = ""
+    eta.value = ""
 })
 
 function render() {
@@ -49,11 +54,23 @@ function render() {
 
 
 function elimina(id) {
-    
+    // INSERISCI QUI IL CODICE
 }
 
 function modifica(id) {
-    
+    // INSERISCI QUI IL CODICE
+    // Fai sparire i bottoni Elimina e Modifica
+    // Mostra nei campi della form i dati selezionati da modificare
+    // Fai apparire il bottone "Registra Modifica" accanto al  bottone "Aggiungi"
+    // Metti nel campo nascosto idAnimale il valore dell'id selezionato
 }
+
+// Scrivi il codice del bottone RegistraModifica
+btnMod.addEventListener('click', () => {
+    // Controlla se i campi nome ed eta sono valorizzati
+    // modifica l'array animali con i dati modificati usando il metodo map()
+    // Fai apparire i bottoni Elimina e Modifica
+    // Fai sparire il bottone "Registra Modifica"
+})
 
 
